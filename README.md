@@ -1,4 +1,5 @@
-##$ oss_team_lab
+# oss_team_lab
+
 # 1. 주제와 설계 과정
 주제 : 가계부 프로그램
 Image(가계부)
