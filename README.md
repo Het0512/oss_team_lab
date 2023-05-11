@@ -13,9 +13,20 @@
 - CRUD 함수 구현 내용
 
 ## 3. 구현 기능
+
+### 구조체 내용
+```
+typedef struct{
+  int count;
+  int price;
+  char name[100];
+  int month, day;
+} product;
+```
+
 ### CRUD 내용
 ```
-- int ceateLog(Product *p); // 가계부에 내용을 추가하는 함수
+- int createLog(Product *p); // 가계부에 내용을 추가하는 함수
 - void readLog(Product *p); // 가계부의 내용 출력 함수
 - int updateLog(Product *p); // 가계부 내용을 수정하는 함수
 - int deleteLog(Product *p); // 가계부 내용을 삭제하는 함수
