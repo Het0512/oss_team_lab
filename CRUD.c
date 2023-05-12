@@ -1,20 +1,11 @@
 #include <stdio.h>
 typedef struct{
-  int count;
+  int number;
   int price;
   char name[100];
+  int sign;
   int month, day;
 } product;
-
-/* 수입(+)인지 지출(-)인지 구분하는 변수 sign추가
-typedef struct{
-  int count;
-  int price;
-  char name[100];
-  char sign;
-  int month, day;
-} product;
-*/
 
 int menu(){
   int menu;
@@ -35,31 +26,52 @@ int menu(){
 }
 
 int createLog(product *p,int count){
-  printf("지출 내역 이름 :");
-  scanf("%[^\n]s",p[count].name);
-  printf("\n");
-  printf("지출된 가격 :");
-  scanf("%d",&p[count].price);
-  printf("\n");
-  printf("지출된 날짜(월):");
-  scanf("%d",&p[count].month);
-  printf("\n");
-  printf("지출된 날짜(일):");
-  scanf("%d",&p[count].day);
-  printf("\n");
+  int order;
+  p[count].number = count;
+  printf("입력: 지출(0) / 수입(0)");
+  scanf("%d",&order);
+  p[count].sign = order;
+  if (order == 0){
+    printf("지출 내역 이름 :");
+    scanf("%[^\n]s",p[count].name);
+    printf("\n");
+    printf("지출된 가격 :");
+    scanf("%d",&p[count].price);
+    printf("\n");
+    printf("지출된 날짜(월):");
+    scanf("%d",&p[count].month);
+    printf("\n");
+    printf("지출된 날짜(일):");
+    scanf("%d",&p[count].day);
+    printf("\n");
+  }
+  else if (order == 1){
+    printf("수입 내역 이름 :");
+    scanf("%[^\n]s",p[count].name);
+    printf("\n");
+    printf("가격 :");
+    scanf("%d",&p[count].price);
+    printf("\n");
+    printf("날짜(월):");
+    scanf("%d",&p[count].month);
+    printf("\n");
+    printf("날짜(일):");
+    scanf("%d",&p[count].day);
+    printf("\n");
+  }
 }
-
-/* 가계부에 지출만 있지 않으니 수입인지 지출인지 물어보는 코드 추가
-int createLog(product *p,int count){
-  printf("지출 내역 이름 :");
-  scanf("%[^\n]s",p[count].name);
-  printf("수입 or 지출 (수입이면 +, 지출이면 -) : ");
-  scanf("%c",&p[count].sign);
-  printf("가격 :");
-  scanf("%d",&p[count].price);
-  printf("날짜(월):");
-  scanf("%d",&p[count].month);
-  printf("날짜(일):");
-  scanf("%d",&p[count].day);
+void readLog(product *p,int count){
+  for(int i = 1; i <= count; i++){
+    int listn = count - 1;
+    if(p[count].sign == 0){
+      printf("===================\n");
+      printf("지출명: %s, 가격: - %d원, 날짜 : %d월 %d일\n",p[listn].name,p[listn].price,p[listn].month,p[listn].day);
+      printf("===================\n");
+    }
+    else if(p[count].sign == 1){
+      printf("===================\n");
+      printf("수입명: %s, 가격: + %d원, 날짜 : %d월 %d일\n",p[listn].name,p[listn].price,p[listn].month,p[listn].day);
+      printf("===================\n");
+    }
+  }
 }
-*/
