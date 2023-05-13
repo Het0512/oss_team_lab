@@ -23,7 +23,6 @@ typedef struct{
   int sign;
   int month, day;
 } product;
-
 ```
 
 ### CRUD 내용
