@@ -26,38 +26,72 @@ int menu(){
 }
 
 int createLog(product *p,int count){
-  int order;
+  int order, check = 0;
   p[count].number = count;
   printf("입력: 지출(0) / 수입(0)");
   scanf("%d",&order);
   p[count].sign = order;
   if (order == 0){
     printf("지출 내역 이름 :");
-    scanf("%[^\n]s",p[count].name);
-    printf("\n");
-    printf("지출된 가격 :");
-    scanf("%d",&p[count].price);
-    printf("\n");
-    printf("지출된 날짜(월):");
-    scanf("%d",&p[count].month);
-    printf("\n");
-    printf("지출된 날짜(일):");
-    scanf("%d",&p[count].day);
-    printf("\n");
   }
   else if (order == 1){
     printf("수입 내역 이름 :");
-    scanf("%[^\n]s",p[count].name);
-    printf("\n");
-    printf("가격 :");
-    scanf("%d",&p[count].price);
-    printf("\n");
-    printf("날짜(월):");
-    scanf("%d",&p[count].month);
-    printf("\n");
+  }
+  scanf("%[^\n]s",p[count].name);
+  printf("가격 :");
+  scanf("%d",&p[count].price);
+  while (1){
+     printf("날짜(월):");
+     scanf("%d",&p[count].month);
+     if(p[count].month > 12 || p[count].month < 1){
+        printf("1~12사이로 다시 입력해주세요!!!\n");
+        continue;
+     }
+     else{
+        break;
+     }
+  }
+  while (1){
     printf("날짜(일):");
     scanf("%d",&p[count].day);
-    printf("\n");
+    switch(p[count].month){
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if(p[count].day > 31 || p[count].day < 1){
+                printf("1~31사이로 다시 입력해주세요!!!\n");
+            }
+            else{
+                check = 1;
+            }
+            break;
+        case 2:
+            if(p[count].day > 28 || p[count].day < 1){
+                printf("1~28사이로 다시 입력해주세요!!!\n");
+            }
+            else{
+                check = 1;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if(p[count].day > 30 || p[count].day < 1){
+                printf("1~30사이로 다시 입력해주세요!!!\n");
+            }
+            else{
+                check = 1;
+            }
+            break;
+    }
+    if(check = 1){
+        break;
+    }
   }
 }
 void readLog(product *p,int count){
