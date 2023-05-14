@@ -109,3 +109,23 @@ void readLog(product *p,int count){
     }
   }
 }
+
+void searchLog(product *p,int count){
+  char names[100];
+  printf("찾고자 하는 가계부 내용의 이름을 입력해주세요 :");
+  scanf("%[^\n]s",names);
+  for(int i = 0; i != count; i++){
+    if (strcmp(p[i].name,names) == 0){
+      if(p[i].sign == 0){
+        printf("===================\n");
+        printf("지출명: %s, 가격: - %d원, 날짜 : %d월 %d일\n",p[i].name,p[i].price,p[i].month,p[i].day);
+        printf("===================\n");
+      }
+      else if(p[count].sign == 1){
+        printf("===================\n");
+        printf("수입명: %s, 가격: + %d원, 날짜 : %d월 %d일\n",p[i].name,p[i].price,p[i].month,p[i].day);
+        printf("===================\n");
+      }
+    }
+  }
+}
