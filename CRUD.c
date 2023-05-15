@@ -146,6 +146,6 @@ void deleteLog(product *p,int count){
   printf("삭제하실 가계부 내역의 번호를 입력해주세요 :");
   scanf("%d",&number);
   printf("\n");
-  p[number-1].sign = -1;
+  p[number-1].sign = -1; //sign이 -1일때 삭제로 처리.(read에서 -1은 continue 처리)
   printf("삭제됨!\n");
 } 
