@@ -28,6 +28,7 @@ int menu(){
 int createLog(product *p,int count){
   int order, check = 0;
   p[count].number = count;
+  p[count].sign = -1;
   printf("입력: 지출(0) / 수입(0)");
   scanf("%d",&order);
   p[count].sign = order;
@@ -107,6 +108,9 @@ void readLog(product *p,int count){
       printf("수입명: %s, 가격: + %d원, 날짜 : %d월 %d일\n",p[listn].name,p[listn].price,p[listn].month,p[listn].day);
       printf("===================\n");
     }
+    else if(p[count].sign == -1){
+      continue;
+    }
   }
 }
 
@@ -129,3 +133,19 @@ void searchLog(product *p,int count){
     }
   }
 }
+
+void deleteLog(product *p,int count){
+  int number;
+  printf("========================\n");
+  for (int i = 0; i != count; i++){
+    if (p[i].sign >= 0){
+      printf("%d. %s\n",i+1,p[i].name);
+    }
+  }
+  printf("========================\n");
+  printf("삭제하실 가계부 내역의 번호를 입력해주세요 :");
+  scanf("%d",&number);
+  printf("\n");
+  p[number-1].sign = -1;
+  printf("삭제됨!\n");
+} 
