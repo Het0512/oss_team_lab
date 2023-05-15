@@ -14,7 +14,7 @@
 
 ## 3. 구현 기능
 
-### 구조체 내용
+### 구조체의 내용
 ```
 typedef struct{
   int number;
