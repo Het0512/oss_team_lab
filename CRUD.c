@@ -242,7 +242,7 @@ void deleteLog(product *p,int count){
 } 
 */
 
-void saveLog(Tobuy *p, int count){
+void saveLog(product *p, int count){
     FILE * file = fopen("log.txt", "wt");
 
     for(int i = 0; i < count; i++){
