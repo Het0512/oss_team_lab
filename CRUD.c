@@ -254,3 +254,18 @@ void saveLog(product *p, int count){
     printf("=> 저장됨!\n");
     fclose(file);
 }
+void totalLog(product *p, int count){
+  int totalspend = 0; //총 지출
+  int totalimport = 0; //총 수입
+  for(int i = 0; i < count; i++){
+    if(p[i].sign == -1)
+      continue;
+    else if (p[i].sign == 0) {
+      totalspend -= p[i].price;
+    }
+    else if (p[i].sign == 1){
+      totalimport += p[i].price;
+    }
+  }
+  printf("총 지출 : %d / 총 수입 : %d",&totalspend,&totalimport);
+}
