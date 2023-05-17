@@ -246,7 +246,7 @@ void saveLog(product *p, int count){
     FILE * file = fopen("log.txt", "wt");
 
     for(int i = 0; i < count; i++){
-        if(t[i].sign == -1){
+        if(p[i].sign == -1){
             continue;
         }
         fprintf(file, "%s %d %d %d\n", p[i].name, p[i].price, p[i].month, p[i].day);
