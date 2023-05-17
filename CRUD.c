@@ -241,3 +241,16 @@ void deleteLog(product *p,int count){
   printf("삭제됨!\n");
 } 
 */
+
+void saveLog(Tobuy *p, int count){
+    FILE * file = fopen("log.txt", "wt");
+
+    for(int i = 0; i < count; i++){
+        if(t[i].sign == -1){
+            continue;
+        }
+        fprintf(file, "%s %d %d %d\n", p[i].name, p[i].price, p[i].month, p[i].day);
+    }
+    printf("=> 저장됨!\n");
+    fclose(file);
+}
