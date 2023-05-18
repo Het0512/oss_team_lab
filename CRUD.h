@@ -18,4 +18,4 @@ int loadLog(Product *p);// 저장된 내용을 불러오는 함수
 int Menu(); // 메뉴를 불러오고 리턴을 가져오는 함수
 void searchLog(Product *p, int count); // 가계부의 내용을 검색하여 출력하는 함수
 int totalLog(Product *p); // 가계부의 적힌 총액을 계산하는 함수
-int TotalMonth(Product *p, int month); // 가계부의 적힌 내용을 기반으로 월마다 총 소비액을 출력하는 함수
+int TotalMonth(Product *p, int month); // 가계부의 적힌 내용을 기반으로 월 총 소비액을 출력하는 함수
