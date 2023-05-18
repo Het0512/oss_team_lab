@@ -269,3 +269,16 @@ void totalLog(product *p, int count){
   }
   printf("총 지출 : %d / 총 수입 : %d",&totalspend,&totalimport);
 }
+
+int TotalMonth(product *p, int month, int count){
+  int totalspend = 0;
+  for(int i = 0; i < count; i++){
+    if((p[i].sign == -1)&&(p[i].month == month))
+      continue;
+    else if ((p[i].sign == 0)&&(p[i].month == month)) {
+      totalspend -= p[i].price;
+    }
+  }
+  printf("총 지출 : %d",&totalspend);
+  return totalspend;
+}
