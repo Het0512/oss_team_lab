@@ -1,11 +1,4 @@
-#include <stdio.h>
-typedef struct{
-  int number;
-  int price;
-  char name[100];
-  int sign;
-  int month, day;
-} product;
+#include "CRUD.h"
 
 int menu(){
   int menu;
