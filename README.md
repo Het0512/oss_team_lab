@@ -20,7 +20,7 @@ typedef struct{
   int number;
   int price;
   char name[100];
-  int sign;
+  int sign; // 지출,수입 내용 구현
   int month, day;
 } product;
 ```
