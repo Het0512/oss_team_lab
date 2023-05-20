@@ -11,6 +11,8 @@ int menu(){
   printf("5. 가계부 내용 수정 \n");
   printf("6. 전체 총액 계산 \n");
   printf("7. 월 평균 총 소비액 계산 \n");
+  printf("8. 가계부 내용 저장 \n");
+  printf("9. 가계부 내용 가져오기 \n");
   printf("===========================\n");
   printf("Insert Command :");
   scanf("%d",&menu);
@@ -310,6 +312,12 @@ int main(void) {
       scanf("%d", &month);
       printf("\n");
       TotalMonth(p,month,count);
+    }
+    else if(search_menu == 8){
+      saveLog(p, count);
+    }
+    else if(search_menu == 9){
+      loadLog(p, count);
     }
   }
   return 0;
