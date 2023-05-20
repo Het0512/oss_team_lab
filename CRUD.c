@@ -272,6 +272,45 @@ int TotalMonth(product *p, int month, int count){
       totalspend -= p[i].price;
     }
   }
-  printf("총 지출 : %d",&totalspend);
+  printf("총 지출 : %d",totalspend);
   return totalspend;
+}
+int main(void) {
+  product p[100];
+  int count = 0;
+  int search_menu;
+  while(1){
+    search_menu = menu();
+    if (search_menu == 0){
+      printf("종료됨!\n");
+      break;
+    }
+    else if(search_menu == 1){
+      createLog(p,count);
+      count++;
+    }
+    else if(search_menu == 2){
+      readLog(p, count);
+    }
+    else if(search_menu == 3){
+      deleteLog(p, count);
+    }
+    else if(search_menu == 4){
+      searchLog(p, count);
+    }
+    else if(search_menu == 5){
+      updateLog(p,count);
+    }
+    else if(search_menu == 6){
+      totalLog(p, count);
+    }
+    else if(search_menu == 7){
+      int month;
+      printf("월을 입력하세요: ");
+      scanf("%d", &month);
+      printf("\n");
+      TotalMonth(p,month,count);
+    }
+  }
+  return 0;
 }
