@@ -237,6 +237,30 @@ void deleteLog(product *p,int count){
 } 
 */
 
+int loadFile(product *p){
+    FILE * file = fopen("log.txt", "rt");
+    int i;
+
+    for(i = 0; i < 20; i++){
+        if(feof(file)){
+            break;
+        }
+        t[i] = malloc(sizeof(Tobuy));
+        fscanf(file, "%s ", p[i].name);
+        fscanf(file, "%d ", &p[i].price);
+        fscanf(file, "%d ", &p[i].month);
+        fscanf(file, "%d ", &p[i].day);
+    }
+    fclose(file);
+    if(i == 1){
+        printf("=> 파일없음!\n");
+    }
+    else{
+        printf("=> 로딩성공!\n");
+    }
+    return i - 1;
+}
+
 void saveLog(product *p, int count){
     FILE * file = fopen("log.txt", "wt");
 
@@ -249,6 +273,7 @@ void saveLog(product *p, int count){
     printf("=> 저장됨!\n");
     fclose(file);
 }
+
 void totalLog(product *p, int count){
   int totalspend = 0; //총 지출
   int totalimport = 0; //총 수입
