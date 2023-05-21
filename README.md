@@ -27,6 +27,7 @@ typedef struct{
 
 ### CRUD 내용
 ```
+- ClearLineFromReadBuffer(); // 입력 버퍼 제거 함수
 - int createLog(Product *p); // 가계부에 내용을 추가하는 함수
 - void readLog(Product *p); // 가계부의 내용 출력 함수
 - int updateLog(Product *p); // 가계부 내용을 수정하는 함수
