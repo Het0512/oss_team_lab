@@ -269,11 +269,8 @@ int loadLog(product *p){
         if(feof(file)){
             break;
         }
-        p[i] = (product *)malloc(sizeof(p));
-        fscanf(file, "%s ", p[i].name);
-        fscanf(file, "%d ", &p[i].price);
-        fscanf(file, "%d ", &p[i].month);
-        fscanf(file, "%d ", &p[i].day);
+        p[i].t = (product *)malloc(sizeof(product));
+        fscanf(file, "%s %d %d %d %d\n", p[i].name,&p[i].price,&p[i].month,&p[i].day&p[i].sign);
     }
     fclose(file);
     if(i == 1){
@@ -292,7 +289,7 @@ void saveLog(product *p, int count){
         if(p[i].sign == -1){
             continue;
         }
-        fprintf(file, "%s %d %d %d\n", p[i].name, p[i].price, p[i].month, p[i].day);
+        fprintf(file, "%s %d %d %d %d\n", p[i].name, p[i].price, p[i].month, p[i].day, p[i].sign);
     }
     printf("=> 저장됨!\n");
     fclose(file);
