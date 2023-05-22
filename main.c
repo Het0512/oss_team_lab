@@ -1,47 +1,46 @@
-#include "CRUD.h"
+#include "crud.h"
 
 int main(void) {
-  product p[100];
+  product * p[20];
+
   int count = 0;
   int search_menu;
+
+  count = loadLog(p);
   while(1){
-    search_menu = menu();
+    search_menu = Menu();
     if (search_menu == 0){
+      for(int i = 0; i < count; i++){
+        free(p[i]);
+      }
       printf("종료됨!\n");
       break;
     }
     else if(search_menu == 1){
-      createLog(p,count);
-      count++;
+      createLog(p, &count);
     }
     else if(search_menu == 2){
       readLog(p, count);
     }
     else if(search_menu == 3){
-      deleteLog(p, count);
+      readLog(p, count);
+      updateLog(p);
     }
     else if(search_menu == 4){
-      searchLog(p, count);
+      readLog(p, count);
+      deleteLog(p);
     }
     else if(search_menu == 5){
-      updateLog(p,count);
+      searchLog(p, count);
     }
     else if(search_menu == 6){
       totalLog(p, count);
     }
     else if(search_menu == 7){
-      int month;
-      printf("월을 입력하세요: ");
-      scanf("%d", &month);
-      ClearLineFromReadBuffer();
-      printf("\n");
-      TotalMonth(p,month,count);
+      TotalMonth(p, count);
     }
     else if(search_menu == 8){
       saveLog(p, count);
-    }
-    else if(search_menu == 9){
-      loadLog(p);
     }
   }
   return 0;
