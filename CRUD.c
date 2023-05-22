@@ -263,7 +263,7 @@ int loadFile(product *p){
         if(feof(file)){
             break;
         }
-        t[i] = malloc(sizeof(Tobuy));
+        t[i] = malloc(sizeof(p));
         fscanf(file, "%s ", p[i].name);
         fscanf(file, "%d ", &p[i].price);
         fscanf(file, "%d ", &p[i].month);
