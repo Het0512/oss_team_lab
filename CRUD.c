@@ -108,6 +108,9 @@ void readLog(product *p,int count){
     if(p[i].sign == -1){
       continue;
     }
+    else if(p[i].day == 0 || p[i].month == 0){
+        continue;
+    }
     printf("%d. ", i+1);
     if(p[i].sign == 0){
       printf("지출명: %s, 가격: - %d원, 날짜 : %d월 %d일\n",p[i].name,p[i].price,p[i].month,p[i].day);
@@ -207,6 +210,9 @@ void searchLog(product *p,int count){
     if(p[i].sign == -1){
       continue;
     }
+    else if(p[i].day == 0 || p[i].month == 0){
+        continue;
+    }
     if (strcmp(p[i].name,names) == 0){
       if(p[i].sign == 0){
         printf("===================\n");
@@ -255,7 +261,7 @@ void deleteLog(product *p,int count){
 } 
 */
 
-int loadFile(product *p){
+int loadLog(product *p){
     FILE * file = fopen("log.txt", "rt");
     int i;
 
@@ -305,7 +311,7 @@ void totalLog(product *p, int count){
       totalimport += p[i].price;
     }
   }
-  printf("총 지출 : %d / 총 수입 : %d",&totalspend,&totalimport);
+  printf("총 지출 : %d / 총 수입 : %d\n",&totalspend,&totalimport);
 }
 
 int TotalMonth(product *p, int month, int count){
@@ -317,6 +323,6 @@ int TotalMonth(product *p, int month, int count){
       totalspend -= p[i].price;
     }
   }
-  printf("총 지출 : %d",totalspend);
+  printf("총 지출 : %d\n",totalspend);
   return totalspend;
 }
