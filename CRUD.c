@@ -269,7 +269,7 @@ int loadLog(product *p){
         if(feof(file)){
             break;
         }
-        p[i] = malloc(sizeof(p));
+        p[i] = (product *)malloc(sizeof(p));
         fscanf(file, "%s ", p[i].name);
         fscanf(file, "%d ", &p[i].price);
         fscanf(file, "%d ", &p[i].month);
