@@ -1,8 +1,10 @@
 #include "CRUD.h"
+
 void ClearLineFromReadBuffer(void)
 {
     while(getchar() != '\n'); // 입력 버퍼 제거 함수
 }
+
 int menu(){
   int menu;
   printf("========== Menu ===========\n");
