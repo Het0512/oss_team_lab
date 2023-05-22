@@ -270,7 +270,7 @@ int loadLog(product *p){
             break;
         }
         p[i].t = (product *)malloc(sizeof(product));
-        fscanf(file, "%s %d %d %d %d\n", p[i].name,&p[i].price,&p[i].month,&p[i].day&p[i].sign);
+        fscanf(file, "%s %d %d %d %d\n", p[i].name,&p[i].price,&p[i].month,&p[i].day,&p[i].sign);
     }
     fclose(file);
     if(i == 1){
