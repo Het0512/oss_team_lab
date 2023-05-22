@@ -7,6 +7,7 @@ typedef struct{
   char name[100];
   int sign;
   int month, day;
+  int t;
 } product;
 void ClearLineFromReadBuffer(); // 입력 버퍼 제거 함수
 int createLog(Product *p); // 가계부에 내용을 추가하는 함수
