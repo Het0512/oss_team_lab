@@ -41,7 +41,7 @@ int main(void) {
       saveLog(p, count);
     }
     else if(search_menu == 9){
-      loadLog(p, count);
+      loadLog(p);
     }
   }
   return 0;
